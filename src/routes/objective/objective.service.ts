@@ -1,6 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { Objective } from '@models/objective/objective.schema';
+import {
+  CreateObjectiveInput,
+  Objective,
+} from '@models/objective/objective.schema';
 import { TOKEN_OBJECTIVE_MODEL } from '@src/token.constant';
 
 @Injectable()
@@ -10,5 +13,9 @@ export class ObjectiveService {
   ) {}
   findAll(): Promise<Objective[]> {
     return this.objectiveModel.find().exec();
+  }
+
+  addObjective(objective: CreateObjectiveInput): Promise<Objective> {
+    return this.objectiveModel.create(objective);
   }
 }

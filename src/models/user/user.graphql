@@ -1,0 +1,19 @@
+type User {
+  id: String!
+  name: String!
+  email: String!
+  rewards: [JSONObject]!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+}
+
+type Query {
+  getUser: User
+}
+
+type Mutation {
+  createUser(user: CreateUserInput): User
+}

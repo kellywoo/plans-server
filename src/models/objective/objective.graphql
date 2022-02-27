@@ -1,10 +1,23 @@
 type Objective {
   id: String!
-  name: String!
-  number: String
-  email: String
+  user: String!
+  title: String!
+  from: String
+  to: String
+  children: [String]
+  public: Boolean
+}
+
+input CreateObjectiveInput {
+  title: String!
+  from: String
+  to: String
 }
 
 type Query {
   getAllObjectives: [Objective]
+}
+
+type Mutation {
+  addObjective(objective: CreateObjectiveInput): Objective
 }
