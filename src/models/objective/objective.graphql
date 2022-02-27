@@ -1,0 +1,10 @@
+type Objective {
+  id: String!
+  name: String!
+  number: String
+  email: String
+}
+
+type Query {
+  getAllObjectives: [Objective]
+}
